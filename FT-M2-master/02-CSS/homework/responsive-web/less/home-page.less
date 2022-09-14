@@ -1,8 +1,31 @@
 // Conteindo del Home
 
 .home {
+  @media only screen and (max-width: 500px){
+    .main-header{
+      width: 100%;
+    }
+    
+    .tecnologia{
+      display: none !important;
+    }
+    .ondas{
+      display: none !important;
+    }
+    .music-images .auricular{
+      width: 100%;
+    }
+    .actual-text{
+      width: 100%
+      ;
+    }
+  
+  }
 
   .intro {
+    img{
+    border-radius: 25px;
+    }
 
     h2 {
       padding: 15px;
@@ -58,6 +81,10 @@
       }
 
       .btn {
+        .btn-generico(red, white);
+      }
+      .btn:hover{
+        .btn-generico(white, red);
       }
     }
 
