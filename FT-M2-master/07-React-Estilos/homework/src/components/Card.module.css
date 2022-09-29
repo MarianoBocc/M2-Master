@@ -1,0 +1,37 @@
+h3{
+   color: white;
+   background-color:  #2a296a;
+   border-radius: 50px 0px 0px 0px;
+   border: 6px solid #2a296a;
+
+}
+.btnC{
+    background-color:#9eccea ;
+    float: right;
+    border: orangered;
+}
+.temp{
+    margin-top: 35px;
+    color: #2a296a;
+    display: flex;
+    justify-content: space-around;
+    
+   
+}
+.caja{
+    
+    border-radius: 50px 0px 50px 50px;
+   background-color:  #2a296a;
+    border: 2px solid #2a296a;
+    width: 400px;
+    height: 200px;
+    background-color: #9eccea;
+    margin: 15px;
+}
+.btnC:hover{
+    background-color: #2a296a;
+    color: black;
+}
+.p{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+}
