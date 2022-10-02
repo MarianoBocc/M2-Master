@@ -1,0 +1,18 @@
+
+.btnAgr{
+    background-color: white;
+    color: gray;
+    border-radius: 10px;
+    margin-left: 10px;
+    border-color: #2a296a;
+    
+
+}
+.btnAgr:hover{
+    background-color: gray;
+    color: white;
+}
+.barra{
+    margin-right: 10px;
+    border-radius: 10%;
+}
