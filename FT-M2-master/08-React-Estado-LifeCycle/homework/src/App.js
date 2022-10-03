@@ -31,7 +31,7 @@ export default function App() {
       });
     }
         function onClose(id) {                                          //El parámetro id nos dice cual queremos borrar con el onClose
-            setCities(oldCities => oldCities.filter(c => c.id != id));  //Le hacemos un filter al arr oldCities y el parámetro es la func flecha c = city
+            setCities(oldCities => oldCities.filter(c => c.id !== id));  //Le hacemos un filter al arr oldCities y el parámetro es la func flecha c = city
         }                                                               // y le decimos q se quede con todos los c.id  q sean diferentes del id parámetro 
                                                                         // de la func onClose
     
