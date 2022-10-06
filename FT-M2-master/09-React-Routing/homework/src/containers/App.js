@@ -3,16 +3,19 @@ import React, { useState } from 'react';
 import './App.css';
 import Nav from '../components/Nav.jsx';
 import Cards from '../components/Cards.jsx';
-
-const apiKey = 'Aqui va la API key que creaste';
+import About from '../components/About.jsx';
+import {Route} from 'react-router-dom';
+import Ciudad from '../components/Ciudad.jsx'
 
 function App() {
   const [cities, setCities] = useState([]);
+  const apiKey = '4ae2636d8dfbdc3044bede63951a019b'; 
   function onClose(id) {
     setCities(oldCities => oldCities.filter(c => c.id !== id));
   }
   function onSearch(ciudad) {
-    //Llamado a la API del clima
+    //Llamado a la API del clima 
+    // TODOS LOS COMENTARIOS DE ESTE APP.JS ESTAN EN EL ARCHIVO APP.JS O8, EXCEPTO LOS CAMBIOS DE ESTA HW
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}`)
       .then(r => r.json())
       .then((recurso) => {
@@ -36,8 +39,8 @@ function App() {
         }
       });
   }
-  function onFilter(ciudadId) {
-    let ciudad = cities.filter(c => c.id === parseInt(ciudadId));
+  function onFilter(ciudadId) {                                     // Esta func lo q hace es tomar4 el id de cada cuiudad, se hace parseInt porq ese id 
+    let ciudad = cities.filter(c => c.id === parseInt(ciudadId));   // lo toma como un string y debemos volverlo un número de id
     if(ciudad.length > 0) {
         return ciudad[0];
     } else {
@@ -46,7 +49,14 @@ function App() {
   }
   return (
     <div className="App">
-      <Nav onSearch={onSearch}/>
+<Route path={'/'} render={() => <Nav onSearch={onSearch} />}/>  {/* Siempre un Route tiene q tener un render y un path para mostrar la ruta(path) q quiero*/}
+<Route exact path={'/about'} render={()=> <About/>}/>
+<Route path={'/ciudad/:ciudadId'} render={({match}) => <Ciudad city={onFilter(match.params.ciudadId)}/>} />
+{/* la URL del path se coloca con los : cuando hay parámetros cuando definimos una ruta.
+ En el render se hace destructuring para pasar solo la prop match de route 
+en el onFilter accedemos al objeto match luego al objeto params dentro de match y luego a la prop ciudadId*/}
+<Route exact path={'/'} render={() => <Cards cities={cities} onClose={onClose}/>}/>
+{/* Los route con exact path solo se renderizan cuando la ruta es exacta*/}
       <div>
         <Cards
           cities={cities}
